@@ -1,6 +1,5 @@
 import torch.nn as nn
 import torch
-from pytorch_lightning.metrics import F1
 import torch.nn.functional as F
 from pytorch_lightning.metrics import ConfusionMatrix
 import numpy as np
