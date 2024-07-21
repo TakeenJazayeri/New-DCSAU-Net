@@ -6,7 +6,7 @@ import torch.nn as nn
 from torch import optim
 import time
 import albumentations as A
-from albumentations.pytorch import ToTensor
+from albumentations.pytorch import ToTensorV2
 from torch.utils.data import random_split
 from torch.optim import lr_scheduler
 import seaborn as sns
@@ -28,7 +28,7 @@ def get_train_transform():
         A.ShiftScaleRotate(shift_limit=0,p=0.25),
         A.CoarseDropout(),
         A.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
-        ToTensor()
+        ToTensorV2()
         ])
 
 def get_valid_transform():
@@ -36,7 +36,7 @@ def get_valid_transform():
        [
         A.Resize(256, 256),
         A.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
-        ToTensor()
+        ToTensorV2()
         ])
 
 def train_model(model, criterion, optimizer, scheduler, num_epochs=5):

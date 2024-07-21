@@ -4,7 +4,7 @@ from torch.autograd import Variable
 import torch.nn as nn
 from data_loading import multi_classes
 import albumentations as A
-from albumentations.pytorch import ToTensor
+from albumentations.pytorch import ToTensorV2
 from pytorch_lightning.metrics import Accuracy, Precision, Recall, F1
 import argparse
 import time

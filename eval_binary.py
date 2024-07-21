@@ -4,7 +4,7 @@ from torch.autograd import Variable
 import torch.nn as nn
 from data_loading import binary_class
 import albumentations as A
-from albumentations.pytorch import ToTensor
+from albumentations.pytorch import ToTensorV2
 from pytorch_lightning.metrics import Accuracy, Precision, Recall, F1
 import argparse
 import time
@@ -48,7 +48,7 @@ def get_transform():
        [
         A.Resize(256, 256),
         A.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
-        ToTensor()
+        ToTensorV2()
         ])
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
